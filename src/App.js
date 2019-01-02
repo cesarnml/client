@@ -1,6 +1,12 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+
+// set up auth
+// set up routing
+// need HOCs for RequireAuth and RequireNotAuth
+// need route for homepage, login, and collection
+// in navbar check redux store to see if logged in or not and render accordingly
 
 class App extends Component {
   render() {
@@ -21,8 +27,8 @@ class App extends Component {
           </a>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

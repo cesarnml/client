@@ -1,21 +1,23 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
+import React from 'react'
+import { render } from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import Store from './reducers'
+import App from './App'
+import * as serviceWorker from './serviceWorker'
 
-import indexRoutes from "routes/index.jsx";
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(Store, composeEnhancers(applyMiddleware(thunk)))
 
-import "assets/scss/material-kit-react.css?v=1.3.0";
+render(
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('root')
+)
 
-var hist = createBrowserHistory();
-
-ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      {indexRoutes.map((prop, key) => {
-        return <Route path={prop.path} key={key} component={prop.component} />;
-      })}
-    </Switch>
-  </Router>,
-  document.getElementById("root")
-);
+serviceWorker.unregister()
