@@ -1,4 +1,5 @@
-// import from features
-// combine reducers
-// export that
-// import in index.js for the store
+import { combineReducers } from 'redux'
+
+const State = combineReducers({})
+
+export default State
