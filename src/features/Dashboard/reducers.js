@@ -1,6 +1,6 @@
 import { FETCH_COLLECTIONS } from './actions'
 
-export default function dashboardReducer(state = null, action) {
+const dashboard = (state = [], action) => {
   switch (action.type) {
     case FETCH_COLLECTIONS:
       return action.payload || false
@@ -8,3 +8,5 @@ export default function dashboardReducer(state = null, action) {
       return state
   }
 }
+
+export default dashboard

@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
-import dashboardReducer from '../features/Dashboard'
+import dashboard from '../features/Dashboard/reducers'
 
-const State = combineReducers({
-  dashboardReducer
-})
+const State = combineReducers({ dashboard })
 
 export default State
