@@ -29,6 +29,7 @@ const mockData = [
 
 const Dashboard = () => (
   <div className="dashboard-container">
+    <h1>Dashboard</h1>
     {mockData.map(collection => (
       <div className="dashboard-collection-container">
         <h2>{collection.collectionName}</h2>
