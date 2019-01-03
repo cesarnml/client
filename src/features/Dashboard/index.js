@@ -62,12 +62,13 @@ class Dashboard extends Component {
 
         <div style={collectionsContainerStyles}>
           {dashboard
-            ? dashboard.map(collection => (
+            ? dashboard.map((collection, i) => (
                 <div
                   className="dashboard-collection-container"
                   style={collectionTileSyles}
+                  key={i}
                 >
-                  <Link to={`/collections/${collection.id}`}>
+                  <Link to={`/collection/${collection.id}`}>
                     <h2>{collection.collectionName}</h2>
                   </Link>
 
