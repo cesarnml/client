@@ -36,9 +36,8 @@ class Collection extends Component {
     return (
       <div className="dashboard-container" style={dashboardContainerStyles}>
         <div style={container}>
-          {collection
-            ? collection.map((project, i) => <Project {...project} />)
-            : null}
+          {collection &&
+            collection.map((project, i) => <Project key={i} {...project} />)}
         </div>
       </div>
     )

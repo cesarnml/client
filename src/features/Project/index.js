@@ -2,12 +2,13 @@ import React from 'react'
 
 const projectBox = {
   border: '1px solid black',
-  margin: '10px'
+  margin: '10px',
+  padding: '10px'
 }
 
-const Project = ({ title, description, tags, members, isMember }) => (
+const Project = ({ projectName, description, tags, members, isMember }) => (
   <div style={projectBox}>
-    <h3>{title}</h3>
+    <h3>{projectName}</h3>
     <p>{description}</p>
     {tags && (
       <ul>
@@ -24,9 +25,9 @@ const Project = ({ title, description, tags, members, isMember }) => (
       </ul>
     )}
     {isMember ? (
-      <button onSubmit={() => console.log('leaving')}>Leave</button>
+      <button onClick={() => console.log('leaving')}>Leave</button>
     ) : (
-      <button onSubmit={() => console.log('joining')}>Join</button>
+      <button onClick={() => console.log('joining')}>Join</button>
     )}
   </div>
 )
