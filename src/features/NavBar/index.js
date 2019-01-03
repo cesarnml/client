@@ -1,5 +1,45 @@
-import React from 'react'
+import React from "react";
 
-const NavBar = () => <p>nav bar goes here</p>
+import {
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  Typography,
+  Button
+} from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
 
-export default NavBar
+const styles = theme => ({
+  appBar: {
+    position: "relative"
+  },
+  toolbarTitle: {
+    flex: 1
+  },
+});
+
+const NavBar = props => {
+  const { classes } = props;
+
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <AppBar position="static" color="default" className={classes.AppBar}>
+        <Toolbar>
+          <Typography
+            variant="h6"
+            color="inherit"
+            noWrap
+            className={classes.toolbarTitle}
+          >
+            GO Built
+          </Typography>
+          <Button
+            className={classes.button}>User</Button>
+        </Toolbar>
+      </AppBar>
+    </React.Fragment>
+  );
+};
+export default withStyles(styles)(NavBar);
+
