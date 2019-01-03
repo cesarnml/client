@@ -3,6 +3,7 @@ export const FETCH_COLLECTIONS = 'FETCH_COLLECTIONS'
 
 const mockData = [
   {
+    id: 1,
     collectionName: 'collection 1',
     description: ';lkafleakh;kajge',
     startDate: 'now',
@@ -10,6 +11,7 @@ const mockData = [
     maxMembersPerTeam: 5
   },
   {
+    id: 1,
     collectionName: 'collection 2',
     description: ';lkafleakh;kajge',
     startDate: 'now',
@@ -17,6 +19,7 @@ const mockData = [
     maxMembersPerTeam: 5
   },
   {
+    id: 3,
     collectionName: 'collection 3',
     description: ';lkafleakh;kajge',
     startDate: 'now',

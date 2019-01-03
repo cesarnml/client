@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { fetchCollections } from './actions'
 
@@ -66,7 +67,10 @@ class Dashboard extends Component {
                   className="dashboard-collection-container"
                   style={collectionTileSyles}
                 >
-                  <h2>{collection.collectionName}</h2>
+                  <Link to={`/collections/${collection.id}`}>
+                    <h2>{collection.collectionName}</h2>
+                  </Link>
+
                   <div style={infoTileStyles}>
                     <p>{collection.description}</p>
                     <p>Start: {collection.startDate}</p>
