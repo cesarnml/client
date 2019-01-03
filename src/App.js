@@ -7,6 +7,7 @@ import { fetchUser } from './features/Authentication/authActions'
 import NavBar from './features/NavBar'
 import Collection from './features/Collection'
 import Login from './features/Login'
+import Dashboard from './features/Dashboard'
 import './styles/App.css'
 
 const AuthLandingPage = requireAuth(Login)
@@ -23,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <Route exact path="/" component={AuthLandingPage} />
+        <Route exact path="/" component={Dashboard} />
 
         {/* collection compoment will take an id. it renders all the projects for a collection */}
         <Route

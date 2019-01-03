@@ -4,40 +4,19 @@ import { Link } from 'react-router-dom'
 
 import { fetchCollection } from './actions'
 
+import Project from '../Project'
+
+const container = {
+  display: 'flex',
+  justifyContent: 'space-around',
+  flexWrap: 'wrap'
+}
+
 // name, description, info
 // dashboard, new button up top (contingent on admin)
 
 const dashboardContainerStyles = {
   border: '1px solid black'
-}
-
-const dashboardTitleStyles = {
-  position: 'relative'
-}
-
-const collectionsContainerStyles = {
-  display: 'flex',
-  flexDirection: 'column'
-}
-
-const collectionTileSyles = {
-  display: 'flex',
-  justifyContent: 'space-around',
-  border: '1px solid black',
-  margin: '10px'
-}
-
-const infoTileStyles = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start'
-}
-
-const newButtonStyle = {
-  position: 'absolute',
-  right: '30px',
-  top: '10px',
-  fontSize: '20px'
 }
 
 const mapStateToProps = ({ collections }) => ({
@@ -56,21 +35,9 @@ class Collection extends Component {
 
     return (
       <div className="dashboard-container" style={dashboardContainerStyles}>
-        <div style={collectionsContainerStyles}>
+        <div style={container}>
           {collection
-            ? collection.map((project, i) => (
-                <div
-                  className="dashboard-collection-container"
-                  style={collectionTileSyles}
-                  key={i}
-                >
-                  <h2>{project.projectName}</h2>
-
-                  <div style={infoTileStyles}>
-                    <p>{project.description}</p>
-                  </div>
-                </div>
-              ))
+            ? collection.map((project, i) => <Project {...project} />)
             : null}
         </div>
       </div>
