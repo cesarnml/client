@@ -32,8 +32,16 @@ const infoTileStyles = {
   alignItems: 'flex-start'
 }
 
+const newButtonStyle = {
+  position: 'absolute',
+  right: '30px',
+  top: '10px',
+  fontSize: '20px'
+}
+
 const mapStateToProps = ({ dashboard }) => ({
-  dashboard
+  dashboard,
+  isAdmin: false // toggle on and off manually for now, will be hooked up to redux store later
 })
 
 class Dashboard extends Component {
@@ -42,12 +50,13 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { dashboard } = this.props
+    const { dashboard, isAdmin } = this.props
 
     return (
       <div className="dashboard-container" style={dashboardContainerStyles}>
         <div style={dashboardTitleStyles}>
           <h1>Dashboard</h1>
+          {isAdmin && <button style={newButtonStyle}>new collection</button>}
         </div>
 
         <div style={collectionsContainerStyles}>
