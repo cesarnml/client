@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import './App.css'
+import './styles/App.css'
 import NavBar from './features/NavBar'
 import Collection from './features/Collection'
 import Dashboard from './features/Dashboard'
