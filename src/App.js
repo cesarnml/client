@@ -8,6 +8,7 @@ import NavBar from './features/NavBar'
 import Collection from './features/Collection'
 import Login from './features/Login'
 import './styles/App.css'
+import Dashboard from './features/Dashboard'
 
 const AuthLandingPage = requireAuth(Login)
 

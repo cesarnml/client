@@ -39,7 +39,7 @@ const newButtonStyle = {
 
 const mapStateToProps = ({ dashboard }) => ({
   dashboard,
-  isAdmin: false // toggle on and off manually for now, will be hooked up to redux store later
+  isAdmin: true // toggle on and off manually for now, will be hooked up to redux store later
 })
 
 class Dashboard extends Component {

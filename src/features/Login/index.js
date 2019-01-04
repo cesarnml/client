@@ -9,8 +9,7 @@ import {
 import LockIcon from '@material-ui/icons/LockOutlined'
 import { withStyles } from '@material-ui/core/styles'
 
-import NavBar from '../NavBar/index';
-
+import NavBar from '../NavBar/index'
 
 const styles = theme => ({
   main: {
@@ -42,23 +41,22 @@ const Login = props => {
 
   return (
     <div>
-    <NavBar/>
-    <main className={classes.main}>
-      <CssBaseline />
-      <Paper className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <Button variant="contained" color="success">
-          <a href={`${process.env.REACT_APP_SERVER_URL}/auth/github`}>
-            Sign in with Github
-          </a>
-        </Button>
-      </Paper>
-    </main>
+      <main className={classes.main}>
+        <CssBaseline />
+        <Paper className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <Button variant="contained" color="success">
+            <a href={`${process.env.REACT_APP_SERVER_URL}/auth/github`}>
+              Sign in with Github
+            </a>
+          </Button>
+        </Paper>
+      </main>
     </div>
   )
 }
