@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/" component={AuthLandingPage} />
 
         {/* collection compoment will take an id. it renders all the projects for a collection */}
         <Route
