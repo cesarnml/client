@@ -3,15 +3,21 @@ export const FETCH_COLLECTION = 'FETCH_COLLECTION'
 export const JOIN_PROJECT = 'JOIN_PROJECT'
 export const LEAVE_PROJECT = 'LEAVE_PROJECT'
 
-export const joinProject = id => async dispatch => {
-  // make axios call
+export const joinProject = (id, collectionId) => async dispatch => {
+  const res = await axios.get(
+    `${process.env.REACT_APP_SERVER_URL}/api/user/${id}`
+  )
 
+  dispatch(fetchCollection(collectionId))
   dispatch({ type: JOIN_PROJECT })
 }
 
-export const leaveProject = id => async dispatch => {
-  // make axios call
+export const leaveProject = (id, collectionId) => async dispatch => {
+  const res = await axios.get(
+    `${process.env.REACT_APP_SERVER_URL}/api/user/${id}`
+  )
 
+  dispatch(fetchCollection(collectionId))
   dispatch({ type: LEAVE_PROJECT })
 }
 

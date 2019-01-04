@@ -37,6 +37,13 @@ class Collection extends Component {
     } = this.props
     const collection = collections[this.props.match.params.id]
 
+    const allMembers =
+      collections[this.props.match.params.id] &&
+      collections[this.props.match.params.id]
+        .map(({ members }) => members)
+        .reduce((list, acc) => [...acc, ...list])
+        .filter(item => item !== null)
+
     return (
       <div className="dashboard-container" style={dashboardContainerStyles}>
         <div style={container}>
@@ -45,9 +52,11 @@ class Collection extends Component {
               <Project
                 key={i}
                 {...project}
+                collectionId={this.props.match.params.id}
                 joinProject={joinProject}
                 leaveProject={leaveProject}
                 username={auth.displayName}
+                allMembers={allMembers}
               />
             ))}
         </div>
