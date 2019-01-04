@@ -2,28 +2,28 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import './styles/App.css'
+import { requireAuth } from './features/Authentication'
+import { fetchUser } from './features/Authentication/authActions'
 import NavBar from './features/NavBar'
 import Collection from './features/Collection'
-import Dashboard from './features/Dashboard'
 import Login from './features/Login'
+import './styles/App.css'
 
-// set up auth
-// set up routing
-// need HOCs for RequireAuth and RequireNotAuth
-// need route for homepage, login, and collection
-// in navbar check redux store to see if logged in or not and render accordingly
+const AuthLandingPage = requireAuth(Login)
 
 class App extends Component {
-  render() {
-    const { loggedIn } = this.props
+  componentDidMount = () => this.props.fetchUser()
+  componentDidUpdate = prevProps => {
+    if (this.props.location !== prevProps.location) {
+      this.props.fetchUser()
+    }
+  }
 
+  render() {
     return (
       <div className="App">
-        <NavBar loggedIn={loggedIn} />
-
-        {/* dashboard will display the list of collections for a user */}
-        <Route path="/" exact render={props => <Dashboard {...props} />} />
+        <NavBar />
+        <Route exact path="/" component={AuthLandingPage} />
 
         {/* collection compoment will take an id. it renders all the projects for a collection */}
         <Route
@@ -37,7 +37,7 @@ class App extends Component {
 
 export default withRouter(
   connect(
-    null, // mapStateToProps
-    null // mapDispatchToProps
+    null,
+    { fetchUser }
   )(App)
 )
