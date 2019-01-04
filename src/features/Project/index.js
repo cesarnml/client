@@ -20,7 +20,9 @@ const Project = ({
   isMember,
   joinProject,
   leaveProject,
-  username
+  username,
+  allMembers,
+  collectionId
 }) => (
   <div style={projectBox}>
     <h3>
@@ -37,10 +39,12 @@ const Project = ({
         ))}
       </ul>
     )}
-    {members.includes(username) ? (
-      <button onClick={() => leaveProject()}>Leave</button>
-    ) : (
-      <button onClick={() => joinProject()}>Join</button>
+    {members.includes(username) && (
+      <button onClick={() => leaveProject(id, collectionId)}>Leave</button>
+    )}
+
+    {!allMembers.includes(username) && (
+      <button onClick={() => joinProject(id, collectionId)}>Join</button>
     )}
   </div>
 )
