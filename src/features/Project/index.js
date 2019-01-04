@@ -3,20 +3,42 @@ import React from 'react'
 const projectBox = {
   border: '1px solid black',
   margin: '10px',
-  padding: '10px'
+  padding: '10px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start'
 }
 
-const Project = ({ projectName, description, tags, members, isMember }) => (
+// id:2
+// name:"EatMe"
+// description:"A diet app"
+// category:"iOS"
+// author:"Samuel"
+// authorCohort:"WEB14
+// "
+// teamCount:0
+// collectionId:1
+// created_at:"2019-01-03T19:10:59.045Z"
+// updated_at:"2019-01-03T19:10:59.045Z"
+
+const Project = ({
+  id,
+  name,
+  description,
+  category,
+  author,
+  authorCohort,
+  members,
+  isMember
+}) => (
   <div style={projectBox}>
-    <h3>{projectName}</h3>
+    <h3>
+      {name} [{category}]
+    </h3>
+    <p>
+      Submitted by: {author} [{authorCohort}]
+    </p>
     <p>{description}</p>
-    {tags && (
-      <ul>
-        {tags.map((tag, i) => (
-          <li key={i}>{tag}</li>
-        ))}
-      </ul>
-    )}
     {members && (
       <ul>
         {members.map((member, i) => (
@@ -33,3 +55,15 @@ const Project = ({ projectName, description, tags, members, isMember }) => (
 )
 
 export default Project
+
+const clickQuestion = (e, id) => {
+  this.setState({
+    ...{
+      question1: false,
+      question2: false,
+      question3: false,
+      question4: false
+    },
+    ...{ [`question${id}`]: !this.state[`question${id}`] }
+  })
+}
