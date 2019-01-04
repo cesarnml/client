@@ -15,9 +15,10 @@ const dashboardContainerStyles = {
   border: '1px solid black'
 }
 
-const mapStateToProps = ({ collections }) => ({
+const mapStateToProps = ({ collections, auth }) => ({
   collections,
-  isAdmin: false // toggle on and off manually for now, will be hooked up to redux store later
+  isAdmin: false, // toggle on and off manually for now, will be hooked up to redux store later
+  auth
 })
 
 class Collection extends Component {
@@ -26,7 +27,14 @@ class Collection extends Component {
   }
 
   render() {
-    const { collections, isAdmin, joinProject, leaveProject } = this.props
+    const {
+      collections,
+      isAdmin,
+      joinProject,
+      leaveProject,
+      username,
+      auth
+    } = this.props
     const collection = collections[this.props.match.params.id]
 
     return (
@@ -39,6 +47,7 @@ class Collection extends Component {
                 {...project}
                 joinProject={joinProject}
                 leaveProject={leaveProject}
+                username={auth.displayName}
               />
             ))}
         </div>
