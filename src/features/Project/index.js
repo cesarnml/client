@@ -19,7 +19,8 @@ const Project = ({
   members,
   isMember,
   joinProject,
-  leaveProject
+  leaveProject,
+  username
 }) => (
   <div style={projectBox}>
     <h3>
@@ -36,7 +37,7 @@ const Project = ({
         ))}
       </ul>
     )}
-    {isMember ? (
+    {members.includes(username) ? (
       <button onClick={() => leaveProject()}>Leave</button>
     ) : (
       <button onClick={() => joinProject()}>Join</button>
