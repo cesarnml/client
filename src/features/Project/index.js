@@ -3,20 +3,32 @@ import React from 'react'
 const projectBox = {
   border: '1px solid black',
   margin: '10px',
-  padding: '10px'
+  padding: '10px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start'
 }
 
-const Project = ({ projectName, description, tags, members, isMember }) => (
+const Project = ({
+  id,
+  name,
+  description,
+  category,
+  author,
+  authorCohort,
+  members,
+  isMember,
+  joinProject,
+  leaveProject
+}) => (
   <div style={projectBox}>
-    <h3>{projectName}</h3>
+    <h3>
+      {name} [{category}]
+    </h3>
+    <p>
+      Submitted by: {author} [{authorCohort}]
+    </p>
     <p>{description}</p>
-    {tags && (
-      <ul>
-        {tags.map((tag, i) => (
-          <li key={i}>{tag}</li>
-        ))}
-      </ul>
-    )}
     {members && (
       <ul>
         {members.map((member, i) => (
@@ -25,9 +37,9 @@ const Project = ({ projectName, description, tags, members, isMember }) => (
       </ul>
     )}
     {isMember ? (
-      <button onClick={() => console.log('leaving')}>Leave</button>
+      <button onClick={() => leaveProject()}>Leave</button>
     ) : (
-      <button onClick={() => console.log('joining')}>Join</button>
+      <button onClick={() => joinProject()}>Join</button>
     )}
   </div>
 )
