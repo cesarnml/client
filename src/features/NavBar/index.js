@@ -34,12 +34,11 @@ const NavBar = props => {
           >
             GO Built
           </Typography>
-          <Button
-            className={classes.button}>User</Button>
+          <Button>Dashboard</Button>
+          <Button color="primary" variant="outlined">User</Button>
         </Toolbar>
       </AppBar>
     </React.Fragment>
   );
 };
 export default withStyles(styles)(NavBar);
-
