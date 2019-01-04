@@ -9,6 +9,9 @@ import {
 import LockIcon from '@material-ui/icons/LockOutlined'
 import { withStyles } from '@material-ui/core/styles'
 
+import NavBar from '../NavBar/index';
+
+
 const styles = theme => ({
   main: {
     width: 'auto',
@@ -38,6 +41,8 @@ const Login = props => {
   const { classes } = props
 
   return (
+    <div>
+    <NavBar/>
     <main className={classes.main}>
       <CssBaseline />
       <Paper className={classes.paper}>
@@ -54,6 +59,7 @@ const Login = props => {
         </Button>
       </Paper>
     </main>
+    </div>
   )
 }
 
