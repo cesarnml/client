@@ -2,13 +2,14 @@ import React, { Fragment } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 
+import { ReactComponent as LavaLamp } from '../../assets/svgs/lava-lamp.svg'
 import Dashboard from '../Dashboard'
 
 const Authenticate = Component => ({ auth }) => {
   const renderContent = () => {
     switch (auth) {
       case null:
-        return <Component />
+        return <LavaLamp />
       case false:
         return <Component />
       default:
