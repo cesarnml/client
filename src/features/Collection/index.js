@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchCollection } from './actions'
+import { joinProject, leaveProject, fetchCollection } from './actions'
 
 import Project from '../Project'
 
@@ -26,14 +26,21 @@ class Collection extends Component {
   }
 
   render() {
-    const { collections, isAdmin } = this.props
+    const { collections, isAdmin, joinProject, leaveProject } = this.props
     const collection = collections[this.props.match.params.id]
 
     return (
       <div className="dashboard-container" style={dashboardContainerStyles}>
         <div style={container}>
           {collection &&
-            collection.map((project, i) => <Project key={i} {...project} />)}
+            collection.map((project, i) => (
+              <Project
+                key={i}
+                {...project}
+                joinProject={joinProject}
+                leaveProject={leaveProject}
+              />
+            ))}
         </div>
       </div>
     )
@@ -42,5 +49,5 @@ class Collection extends Component {
 
 export default connect(
   mapStateToProps,
-  { fetchCollection }
+  { joinProject, leaveProject, fetchCollection }
 )(Collection)

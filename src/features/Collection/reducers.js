@@ -5,9 +5,9 @@ const collections = (state = {}, action) => {
     case FETCH_COLLECTION:
       return { ...state, [action.id]: action.payload } || false
     case JOIN_PROJECT:
-      return { ...state, [action.id]: action.payload }
+      return state
     case LEAVE_PROJECT:
-      return { ...state, [action.id]: action.payload }
+      return state
     default:
       return state
   }

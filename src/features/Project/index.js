@@ -9,18 +9,6 @@ const projectBox = {
   alignItems: 'flex-start'
 }
 
-// id:2
-// name:"EatMe"
-// description:"A diet app"
-// category:"iOS"
-// author:"Samuel"
-// authorCohort:"WEB14
-// "
-// teamCount:0
-// collectionId:1
-// created_at:"2019-01-03T19:10:59.045Z"
-// updated_at:"2019-01-03T19:10:59.045Z"
-
 const Project = ({
   id,
   name,
@@ -29,7 +17,9 @@ const Project = ({
   author,
   authorCohort,
   members,
-  isMember
+  isMember,
+  joinProject,
+  leaveProject
 }) => (
   <div style={projectBox}>
     <h3>
@@ -47,23 +37,11 @@ const Project = ({
       </ul>
     )}
     {isMember ? (
-      <button onClick={() => console.log('leaving')}>Leave</button>
+      <button onClick={() => leaveProject()}>Leave</button>
     ) : (
-      <button onClick={() => console.log('joining')}>Join</button>
+      <button onClick={() => joinProject()}>Join</button>
     )}
   </div>
 )
 
 export default Project
-
-const clickQuestion = (e, id) => {
-  this.setState({
-    ...{
-      question1: false,
-      question2: false,
-      question3: false,
-      question4: false
-    },
-    ...{ [`question${id}`]: !this.state[`question${id}`] }
-  })
-}
