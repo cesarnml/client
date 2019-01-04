@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom'
 
 import { fetchCollections } from './actions'
 
-// name, description, info
-// dashboard, new button up top (contingent on admin)
-
 const dashboardContainerStyles = {
   border: '1px solid black'
 }
@@ -69,7 +66,7 @@ class Dashboard extends Component {
                   key={i}
                 >
                   <Link to={`/collection/${collection.id}`}>
-                    <h2>{collection.collectionName}</h2>
+                    <h2>{collection.name}</h2>
                   </Link>
 
                   <div style={infoTileStyles}>

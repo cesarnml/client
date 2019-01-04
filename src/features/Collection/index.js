@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import { fetchCollection } from './actions'
 
@@ -11,9 +10,6 @@ const container = {
   justifyContent: 'space-around',
   flexWrap: 'wrap'
 }
-
-// name, description, info
-// dashboard, new button up top (contingent on admin)
 
 const dashboardContainerStyles = {
   border: '1px solid black'
