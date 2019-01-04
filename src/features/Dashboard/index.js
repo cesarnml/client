@@ -59,21 +59,19 @@ class Dashboard extends Component {
 
         <div style={collectionsContainerStyles}>
           {dashboard
-            ? dashboard.map((collection, i) => (
+            ? dashboard.map(({ id, name, description, maxTeam }) => (
                 <div
                   className="dashboard-collection-container"
                   style={collectionTileSyles}
-                  key={i}
+                  key={id}
                 >
-                  <Link to={`/collection/${collection.id}`}>
-                    <h2>{collection.name}</h2>
+                  <Link to={`/collection/${id}`}>
+                    <h2>{name}</h2>
                   </Link>
 
                   <div style={infoTileStyles}>
-                    <p>{collection.description}</p>
-                    <p>Start: {collection.startDate}</p>
-                    <p>End: {collection.endDate}</p>
-                    <p>Max members per team: {collection.maxMembersPerTeam}</p>
+                    <p>{description}</p>
+                    <p>Max members per team: {maxTeam}</p>
                   </div>
                 </div>
               ))
